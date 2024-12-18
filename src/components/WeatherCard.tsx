@@ -29,20 +29,40 @@ export const WeatherCard = ({
   condition,
   className,
 }: WeatherCardProps) => {
+  const isToday = day.toLowerCase() === "today";
+  
   return (
     <Card 
       className={cn(
-        "p-8 bg-white/80 border-none shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up overflow-hidden group",
+        "p-8 border-none shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up overflow-hidden group relative",
+        isToday ? "text-white" : "bg-white/80",
         className
       )}
+      style={isToday ? {
+        backgroundImage: "url('/lovable-uploads/bf2a9916-b56f-4bd2-a7b0-95c5950147c5.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      } : undefined}
     >
-      <div className="flex flex-col items-center space-y-6">
-        <span className="text-lg font-medium text-accent">{day}</span>
-        <div className="rounded-full p-4 bg-primary/50 group-hover:scale-110 transition-transform duration-300">
+      {isToday && (
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
+      )}
+      <div className={cn(
+        "flex flex-col items-center space-y-6",
+        isToday ? "relative z-10" : ""
+      )}>
+        <span className="text-lg font-medium">{day}</span>
+        <div className={cn(
+          "rounded-full p-4 group-hover:scale-110 transition-transform duration-300",
+          isToday ? "bg-white/20" : "bg-primary/50"
+        )}>
           {getWeatherIcon(condition)}
         </div>
-        <span className="text-4xl font-bold text-accent">{temperature}</span>
-        <span className="text-lg text-muted-foreground">{condition}</span>
+        <span className="text-4xl font-bold">{temperature}</span>
+        <span className={cn(
+          "text-lg",
+          isToday ? "text-white/90" : "text-muted-foreground"
+        )}>{condition}</span>
       </div>
     </Card>
   );
