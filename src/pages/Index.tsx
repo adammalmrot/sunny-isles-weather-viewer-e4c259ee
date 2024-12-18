@@ -37,7 +37,7 @@ const Index = () => {
       <div 
         className="min-h-screen bg-gradient-to-b from-primary to-secondary pt-16"
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)`,
+          backgroundImage: `url(/lovable-uploads/9dab586f-a612-40aa-a336-c440868ea07c.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
