@@ -17,22 +17,24 @@ export const WeatherCard = ({
   className,
 }: WeatherCardProps) => {
   return (
-    <Card className={cn(
-      "p-6 backdrop-blur-sm bg-white/80 border border-white/20 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] animate-fade-up overflow-hidden",
-      className
-    )}>
-      <div className="flex flex-col items-center space-y-4">
-        <span className="text-sm font-medium text-muted-foreground">{day}</span>
-        <div className="w-16 h-16 rounded-full overflow-hidden">
+    <Card 
+      className={cn(
+        "p-8 backdrop-blur-md bg-white/20 border-none shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up overflow-hidden group",
+        className
+      )}
+    >
+      <div className="flex flex-col items-center space-y-6">
+        <span className="text-lg font-medium text-white/80">{day}</span>
+        <div className="w-20 h-20 rounded-full overflow-hidden bg-white/30 p-1 group-hover:scale-110 transition-transform duration-300">
           <img
             src={icon}
             alt={condition}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-full"
             loading="lazy"
           />
         </div>
-        <span className="text-2xl font-semibold">{temperature}</span>
-        <span className="text-sm text-muted-foreground">{condition}</span>
+        <span className="text-4xl font-bold text-white">{temperature}</span>
+        <span className="text-lg text-white/80">{condition}</span>
       </div>
     </Card>
   );

@@ -35,7 +35,7 @@ const Index = () => {
     <>
       <Header />
       <div 
-        className="min-h-screen bg-gradient-to-b from-primary to-secondary pt-16"
+        className="min-h-screen bg-gradient-to-br from-accent/20 to-primary/20"
         style={{
           backgroundImage: `url(/lovable-uploads/9dab586f-a612-40aa-a336-c440868ea07c.png)`,
           backgroundSize: 'cover',
@@ -44,43 +44,51 @@ const Index = () => {
         }}
       >
         <div className="container mx-auto px-4 py-12 relative">
-          {/* Overlay for better readability */}
-          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm -mx-4" />
+          {/* Main content wrapper with glass effect */}
+          <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] rounded-xl shadow-2xl mx-4" />
           
-          <div className="space-y-12 relative">
-            {/* Header */}
-            <div className="text-center space-y-6 animate-fade-up">
-              <h1 className="text-4xl md:text-5xl font-bold text-white">
+          <div className="relative space-y-12 pt-8">
+            {/* Header Section */}
+            <div className="text-center space-y-4">
+              <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
                 Maldives Weather
               </h1>
-              <p className="text-lg text-white/90 max-w-2xl mx-auto">
-                Experience the tropical paradise through our detailed weather forecasts
+              <p className="text-xl text-white/90 max-w-2xl mx-auto font-light">
+                Experience paradise through our detailed weather forecasts
               </p>
             </div>
 
-            {/* Location Selector */}
+            {/* Location Selector with new styling */}
             <div className="flex justify-center">
-              <LocationSelector onLocationChange={setSelectedLocation} />
+              <div className="w-full max-w-md backdrop-blur-md bg-white/20 p-6 rounded-xl shadow-lg">
+                <LocationSelector onLocationChange={setSelectedLocation} />
+              </div>
             </div>
 
-            {/* Current Weather */}
+            {/* Current Weather Card */}
             <div className="flex justify-center">
-              <WeatherCard
-                day="Today"
-                temperature={weatherData.current.temperature}
-                condition={weatherData.current.condition}
-                icon={weatherData.forecast[0].icon}
-                className="w-full max-w-sm"
-              />
+              <div className="w-full max-w-lg">
+                <WeatherCard
+                  day="Today"
+                  temperature={weatherData.current.temperature}
+                  condition={weatherData.current.condition}
+                  icon={weatherData.forecast[0].icon}
+                  className="transform hover:scale-105 transition-all duration-300"
+                />
+              </div>
             </div>
 
-            {/* Weather Metrics */}
-            <WeatherMetrics metrics={metrics} />
+            {/* Weather Metrics with new styling */}
+            <div className="max-w-4xl mx-auto">
+              <WeatherMetrics metrics={metrics} />
+            </div>
 
-            {/* Forecast */}
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold text-center text-white">5-Day Forecast</h2>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {/* Forecast Section with new styling */}
+            <div className="space-y-8">
+              <h2 className="text-3xl font-semibold text-center text-white drop-shadow-md">
+                5-Day Forecast
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
                 {weatherData.forecast.map((day, index) => (
                   <WeatherCard
                     key={index}
@@ -88,6 +96,7 @@ const Index = () => {
                     temperature={day.temperature}
                     condition={day.condition}
                     icon={day.icon}
+                    className="transform hover:scale-105 transition-all duration-300"
                   />
                 ))}
               </div>
