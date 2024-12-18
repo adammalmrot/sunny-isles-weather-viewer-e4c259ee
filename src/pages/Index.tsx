@@ -64,6 +64,7 @@ const Index = () => {
               </p>
             </div>
 
+            {/* Location and Month Selection */}
             <div className="flex flex-col md:flex-row justify-center gap-4 max-w-4xl mx-auto">
               <div className="w-full md:w-64 backdrop-blur-md bg-white/20 p-6 rounded-xl shadow-lg">
                 <LocationSelector onLocationChange={setSelectedLocation} />
@@ -84,6 +85,7 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Weather Card */}
             <div className="flex justify-center px-4">
               <div className="w-full max-w-4xl">
                 <WeatherCard
@@ -97,10 +99,12 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Weather Metrics */}
             <div className="max-w-6xl mx-auto px-4">
               <WeatherMetrics metrics={metrics} />
             </div>
 
+            {/* Weather Forecast */}
             <div className="space-y-8 px-4">
               <div className="flex flex-col items-center gap-4">
                 <h2 className="text-3xl font-semibold text-center text-accent drop-shadow-md">
@@ -135,7 +139,10 @@ const Index = () => {
               </div>
             </div>
 
+            {/* News Section */}
             <NewsSection limit={4} />
+
+            {/* Activities Section */}
             <ActivitiesSection />
           </div>
         </div>

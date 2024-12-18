@@ -7,28 +7,28 @@ const activities = [
     title: "Parasailing Adventure",
     description: "Soar high above the turquoise waters for breathtaking views",
     price: "From $89",
-    image: "/lovable-uploads/482cb131-914c-4e04-bd0b-a0ffe0068548.png"
+    image: "/lovable-uploads/d2fe40f5-f148-4c54-a616-8aaea06360c3.png"
   },
   {
     id: 2,
     title: "Stand-Up Paddleboarding",
     description: "Explore crystal clear lagoons at your own pace",
     price: "From $45",
-    image: "/lovable-uploads/482cb131-914c-4e04-bd0b-a0ffe0068548.png"
+    image: "/lovable-uploads/4c5fada6-4487-4206-bebe-e154f422a683.png"
   },
   {
     id: 3,
-    title: "Flyboarding Experience",
-    description: "Feel the thrill of flying above the ocean",
-    price: "From $149",
-    image: "/lovable-uploads/482cb131-914c-4e04-bd0b-a0ffe0068548.png"
-  },
-  {
-    id: 4,
     title: "Snorkeling Adventure",
     description: "Discover vibrant coral reefs and marine life",
     price: "From $65",
-    image: "/lovable-uploads/482cb131-914c-4e04-bd0b-a0ffe0068548.png"
+    image: "/lovable-uploads/bf7f1589-7df3-4a31-8628-3a4249437e88.png"
+  },
+  {
+    id: 4,
+    title: "Jet Ski Experience",
+    description: "Feel the thrill of riding the waves",
+    price: "From $120",
+    image: "/lovable-uploads/2555de1a-345b-4203-ba61-1938d05ebdea.png"
   }
 ];
 
