@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { NewsSection } from "@/components/NewsSection";
 import { ActivitiesSection } from "@/components/ActivitiesSection";
+import { RecommendedResorts } from "@/components/RecommendedResorts";
 
 const weatherData = {
   current: {
@@ -155,6 +156,10 @@ const Index = () => {
 
             {/* Activities Section */}
             <ActivitiesSection />
+            
+            {/* Add the new RecommendedResorts section */}
+            <RecommendedResorts />
+            
           </div>
         </div>
       </div>
