@@ -45,7 +45,7 @@ export const WeatherCard = ({
       } : undefined}
     >
       {isToday && (
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] transition-all duration-300 group-hover:backdrop-blur-0 group-hover:bg-black/20" />
       )}
       <div className={cn(
         "flex flex-col items-center space-y-6",
