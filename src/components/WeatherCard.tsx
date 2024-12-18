@@ -1,6 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Sun, CloudRain, Cloud, CloudSun } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useState } from "react";
+import { HourlyWeather } from "./HourlyWeather";
 
 interface WeatherCardProps {
   day: string;
@@ -25,7 +28,7 @@ const getWeatherIcon = (condition: string) => {
 };
 
 const backgroundImages = [
-  '/lovable-uploads/9dc13eb9-785c-45ba-a036-a3bcb96e4bf8.png', // Today's image
+  '/lovable-uploads/9dc13eb9-785c-45ba-a036-a3bcb96e4bf8.png',
   '/lovable-uploads/bf50f110-02fd-4b05-bb49-2b502489c51c.png',
   '/lovable-uploads/bd82af9e-512c-48bb-8026-88c52b1a7efd.png',
   '/lovable-uploads/ef22733b-3bb3-48c0-b62e-eec4023cdbbc.png',
@@ -44,30 +47,48 @@ export const WeatherCard = ({
   className,
   index,
 }: WeatherCardProps) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const isToday = day.toLowerCase() === "today";
   const imageIndex = isToday ? 0 : index % (backgroundImages.length - 1) + 1;
   
   return (
-    <Card 
-      className={cn(
-        "p-8 border-none shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up overflow-hidden group relative text-white",
-        className
-      )}
-      style={{
-        backgroundImage: `url('${backgroundImages[imageIndex]}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] transition-all duration-300 group-hover:backdrop-blur-0 group-hover:bg-black/20" />
-      <div className="relative z-10 flex flex-col items-center space-y-6">
-        <span className="text-lg font-medium">{day}</span>
-        <div className="rounded-full p-4 bg-white/20 group-hover:scale-110 transition-transform duration-300">
-          {getWeatherIcon(condition)}
+    <>
+      <Card 
+        className={cn(
+          "p-8 border-none shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up overflow-hidden group relative text-white cursor-pointer",
+          className
+        )}
+        style={{
+          backgroundImage: `url('${backgroundImages[imageIndex]}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+        onClick={() => setIsDialogOpen(true)}
+      >
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] transition-all duration-300 group-hover:backdrop-blur-0 group-hover:bg-black/20" />
+        <div className="relative z-10 flex flex-col items-center space-y-6">
+          <span className="text-lg font-medium">{day}</span>
+          <div className="rounded-full p-4 bg-white/20 group-hover:scale-110 transition-transform duration-300">
+            {getWeatherIcon(condition)}
+          </div>
+          <span className="text-4xl font-bold">{temperature}</span>
+          <span className="text-lg text-white/90">{condition}</span>
         </div>
-        <span className="text-4xl font-bold">{temperature}</span>
-        <span className="text-lg text-white/90">{condition}</span>
-      </div>
-    </Card>
+      </Card>
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">{day}'s Hourly Forecast</DialogTitle>
+          </DialogHeader>
+          <HourlyWeather 
+            day={day}
+            backgroundImage={backgroundImages[imageIndex]}
+            condition={condition}
+            temperature={temperature}
+          />
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
