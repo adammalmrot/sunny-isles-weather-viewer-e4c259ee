@@ -3,8 +3,9 @@ import { WeatherCard } from "@/components/WeatherCard";
 import { WeatherMetrics } from "@/components/WeatherMetrics";
 import { LocationSelector } from "@/components/LocationSelector";
 import Header from "@/components/Header";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-// Placeholder data - will be replaced with API data later
+// Extended placeholder data for 10-day forecast
 const weatherData = {
   current: {
     temperature: "29°C",
@@ -14,29 +15,39 @@ const weatherData = {
     uvIndex: "High",
   },
   forecast: [
-    { day: "Today", temperature: "29°C", condition: "Partly Cloudy", icon: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=400&h=400&fit=crop" },
-    { day: "Tomorrow", temperature: "28°C", condition: "Sunny", icon: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=400&fit=crop" },
-    { day: "Wednesday", temperature: "27°C", condition: "Scattered Showers", icon: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=400&h=400&fit=crop" },
-    { day: "Thursday", temperature: "28°C", condition: "Sunny", icon: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=400&h=400&fit=crop" },
-    { day: "Friday", temperature: "29°C", condition: "Partly Cloudy", icon: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=400&h=400&fit=crop" },
+    { day: "Today", temperature: "29°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
+    { day: "Tomorrow", temperature: "28°C", condition: "Sunny", icon: "sunny" },
+    { day: "Day 3", temperature: "27°C", condition: "Scattered Showers", icon: "scattered-showers" },
+    { day: "Day 4", temperature: "28°C", condition: "Sunny", icon: "sunny" },
+    { day: "Day 5", temperature: "29°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
+    { day: "Day 6", temperature: "30°C", condition: "Sunny", icon: "sunny" },
+    { day: "Day 7", temperature: "28°C", condition: "Scattered Showers", icon: "scattered-showers" },
+    { day: "Day 8", temperature: "27°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
+    { day: "Day 9", temperature: "29°C", condition: "Sunny", icon: "sunny" },
+    { day: "Day 10", temperature: "28°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
   ],
 };
 
 const metrics = [
-  { label: "Humidity", value: "75%", icon: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=100&h=100&fit=crop" },
-  { label: "Wind Speed", value: "12 km/h", icon: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=100&h=100&fit=crop" },
-  { label: "UV Index", value: "High", icon: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=100&h=100&fit=crop" },
+  { label: "Humidity", value: "75%", icon: "droplets" },
+  { label: "Wind Speed", value: "12 km/h", icon: "wind" },
+  { label: "UV Index", value: "High", icon: "sun" },
+];
+
+const months = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
 ];
 
 const Index = () => {
   const [selectedLocation, setSelectedLocation] = useState("male");
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth().toString());
 
   return (
     <>
       <Header />
       <div className="min-h-screen bg-gradient-to-br from-accent/20 to-primary/20">
         <div className="container mx-auto px-4 py-12 relative">
-          {/* Main content wrapper with glass effect */}
           <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] rounded-xl shadow-2xl mx-4" />
           
           <div className="relative space-y-12 pt-8">
@@ -50,10 +61,24 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Location Selector with new styling */}
-            <div className="flex justify-center">
-              <div className="w-full max-w-md backdrop-blur-md bg-white/20 p-6 rounded-xl shadow-lg">
+            {/* Location and Month Selector */}
+            <div className="flex flex-col md:flex-row justify-center gap-4">
+              <div className="w-full md:w-64 backdrop-blur-md bg-white/20 p-6 rounded-xl shadow-lg">
                 <LocationSelector onLocationChange={setSelectedLocation} />
+              </div>
+              <div className="w-full md:w-64 backdrop-blur-md bg-white/20 p-6 rounded-xl shadow-lg">
+                <Select value={selectedMonth} onValueChange={setSelectedMonth}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select month" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {months.map((month, index) => (
+                      <SelectItem key={index} value={index.toString()}>
+                        {month}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             </div>
 
@@ -70,17 +95,17 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Weather Metrics with new styling */}
+            {/* Weather Metrics */}
             <div className="max-w-4xl mx-auto">
               <WeatherMetrics metrics={metrics} />
             </div>
 
-            {/* Forecast Section with new styling */}
+            {/* 10-Day Forecast Section */}
             <div className="space-y-8">
               <h2 className="text-3xl font-semibold text-center text-accent drop-shadow-md">
-                5-Day Forecast
+                10-Day Forecast
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
                 {weatherData.forecast.map((day, index) => (
                   <WeatherCard
                     key={index}
