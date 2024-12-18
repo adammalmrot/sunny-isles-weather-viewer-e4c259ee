@@ -5,7 +5,6 @@ import { LocationSelector } from "@/components/LocationSelector";
 import Header from "@/components/Header";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-// Extended placeholder data for 10-day forecast
 const weatherData = {
   current: {
     temperature: "29°C",
@@ -47,10 +46,8 @@ const Index = () => {
     <>
       <Header />
       <div className="min-h-screen bg-gradient-to-br from-accent/20 to-primary/20">
-        <div className="container mx-auto px-4 py-12 relative">
-          <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] rounded-xl shadow-2xl mx-4" />
-          
-          <div className="relative space-y-12 pt-8">
+        <div className="w-full px-4 py-12">
+          <div className="space-y-12 pt-8">
             {/* Header Section */}
             <div className="text-center space-y-4">
               <h1 className="text-5xl md:text-6xl font-bold text-accent drop-shadow-lg">
@@ -62,7 +59,7 @@ const Index = () => {
             </div>
 
             {/* Location and Month Selector */}
-            <div className="flex flex-col md:flex-row justify-center gap-4">
+            <div className="flex flex-col md:flex-row justify-center gap-4 max-w-4xl mx-auto">
               <div className="w-full md:w-64 backdrop-blur-md bg-white/20 p-6 rounded-xl shadow-lg">
                 <LocationSelector onLocationChange={setSelectedLocation} />
               </div>
@@ -83,8 +80,8 @@ const Index = () => {
             </div>
 
             {/* Current Weather Card */}
-            <div className="flex justify-center">
-              <div className="w-full max-w-lg">
+            <div className="flex justify-center px-4">
+              <div className="w-full max-w-4xl">
                 <WeatherCard
                   day="Today"
                   temperature={weatherData.current.temperature}
@@ -96,16 +93,16 @@ const Index = () => {
             </div>
 
             {/* Weather Metrics */}
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto px-4">
               <WeatherMetrics metrics={metrics} />
             </div>
 
             {/* 10-Day Forecast Section */}
-            <div className="space-y-8">
+            <div className="space-y-8 px-4">
               <h2 className="text-3xl font-semibold text-center text-accent drop-shadow-md">
                 10-Day Forecast
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
                 {weatherData.forecast.map((day, index) => (
                   <WeatherCard
                     key={index}
