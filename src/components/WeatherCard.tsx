@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { Sun, CloudRain, Cloud, CloudSun } from "lucide-react";
 
 interface WeatherCardProps {
   day: string;
@@ -9,32 +10,39 @@ interface WeatherCardProps {
   className?: string;
 }
 
+const getWeatherIcon = (condition: string) => {
+  switch (condition.toLowerCase()) {
+    case "sunny":
+      return <Sun className="w-12 h-12 text-accent animate-pulse" />;
+    case "partly cloudy":
+      return <CloudSun className="w-12 h-12 text-accent" />;
+    case "scattered showers":
+      return <CloudRain className="w-12 h-12 text-accent" />;
+    default:
+      return <Cloud className="w-12 h-12 text-accent" />;
+  }
+};
+
 export const WeatherCard = ({
   day,
   temperature,
   condition,
-  icon,
   className,
 }: WeatherCardProps) => {
   return (
     <Card 
       className={cn(
-        "p-8 backdrop-blur-md bg-white/20 border-none shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up overflow-hidden group",
+        "p-8 bg-white/80 border-none shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up overflow-hidden group",
         className
       )}
     >
       <div className="flex flex-col items-center space-y-6">
-        <span className="text-lg font-medium text-white/80">{day}</span>
-        <div className="w-20 h-20 rounded-full overflow-hidden bg-white/30 p-1 group-hover:scale-110 transition-transform duration-300">
-          <img
-            src={icon}
-            alt={condition}
-            className="w-full h-full object-cover rounded-full"
-            loading="lazy"
-          />
+        <span className="text-lg font-medium text-accent">{day}</span>
+        <div className="rounded-full p-4 bg-primary/50 group-hover:scale-110 transition-transform duration-300">
+          {getWeatherIcon(condition)}
         </div>
-        <span className="text-4xl font-bold text-white">{temperature}</span>
-        <span className="text-lg text-white/80">{condition}</span>
+        <span className="text-4xl font-bold text-accent">{temperature}</span>
+        <span className="text-lg text-muted-foreground">{condition}</span>
       </div>
     </Card>
   );

@@ -34,15 +34,7 @@ const Index = () => {
   return (
     <>
       <Header />
-      <div 
-        className="min-h-screen bg-gradient-to-br from-accent/20 to-primary/20"
-        style={{
-          backgroundImage: `url(/lovable-uploads/9dab586f-a612-40aa-a336-c440868ea07c.png)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
+      <div className="min-h-screen bg-gradient-to-br from-accent/20 to-primary/20">
         <div className="container mx-auto px-4 py-12 relative">
           {/* Main content wrapper with glass effect */}
           <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] rounded-xl shadow-2xl mx-4" />
@@ -50,10 +42,10 @@ const Index = () => {
           <div className="relative space-y-12 pt-8">
             {/* Header Section */}
             <div className="text-center space-y-4">
-              <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
+              <h1 className="text-5xl md:text-6xl font-bold text-accent drop-shadow-lg">
                 Maldives Weather
               </h1>
-              <p className="text-xl text-white/90 max-w-2xl mx-auto font-light">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
                 Experience paradise through our detailed weather forecasts
               </p>
             </div>
@@ -85,7 +77,7 @@ const Index = () => {
 
             {/* Forecast Section with new styling */}
             <div className="space-y-8">
-              <h2 className="text-3xl font-semibold text-center text-white drop-shadow-md">
+              <h2 className="text-3xl font-semibold text-center text-accent drop-shadow-md">
                 5-Day Forecast
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
