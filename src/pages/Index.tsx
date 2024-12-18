@@ -4,6 +4,7 @@ import { WeatherMetrics } from "@/components/WeatherMetrics";
 import { LocationSelector } from "@/components/LocationSelector";
 import Header from "@/components/Header";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const weatherData = {
   current: {
@@ -41,6 +42,9 @@ const months = [
 const Index = () => {
   const [selectedLocation, setSelectedLocation] = useState("male");
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth().toString());
+  const [forecastDays, setForecastDays] = useState("5");
+
+  const visibleForecast = weatherData.forecast.slice(0, parseInt(forecastDays));
 
   return (
     <>
@@ -97,13 +101,28 @@ const Index = () => {
               <WeatherMetrics metrics={metrics} />
             </div>
 
-            {/* 10-Day Forecast Section */}
+            {/* Forecast Section */}
             <div className="space-y-8 px-4">
-              <h2 className="text-3xl font-semibold text-center text-accent drop-shadow-md">
-                10-Day Forecast
-              </h2>
+              <div className="flex flex-col items-center gap-4">
+                <h2 className="text-3xl font-semibold text-center text-accent drop-shadow-md">
+                  Weather Forecast
+                </h2>
+                <ToggleGroup
+                  type="single"
+                  value={forecastDays}
+                  onValueChange={(value) => value && setForecastDays(value)}
+                  className="bg-white/20 backdrop-blur-md p-1 rounded-lg"
+                >
+                  <ToggleGroupItem value="5" className="px-6">
+                    5 Days
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="10" className="px-6">
+                    10 Days
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
-                {weatherData.forecast.map((day, index) => (
+                {visibleForecast.map((day, index) => (
                   <WeatherCard
                     key={index}
                     day={day.day}
