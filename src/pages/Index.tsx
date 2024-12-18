@@ -54,14 +54,21 @@ const Index = () => {
       <div className="min-h-screen bg-gradient-to-br from-accent/20 via-primary/20 to-accent/20">
         <div className="w-full px-4 py-12">
           <div className="space-y-12 pt-16">
-            {/* Header Section */}
-            <div className="text-center space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold text-accent drop-shadow-lg">
+            {/* Enhanced Header Section */}
+            <div className="text-center space-y-6 max-w-4xl mx-auto">
+              <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text text-transparent drop-shadow-lg animate-fade-up">
                 Maldives Weather
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-                Experience paradise through our detailed weather forecasts
-              </p>
+              <div className="space-y-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+                  Experience paradise through our detailed weather forecasts
+                </p>
+                <p className="text-base text-muted-foreground/80 max-w-3xl mx-auto">
+                  Stay informed with real-time weather updates, accurate forecasts, and essential travel insights for the Maldives. 
+                  Whether you're planning a beach vacation, water sports activities, or simply exploring the islands, 
+                  we provide comprehensive weather information to help you make the most of your Maldivian experience.
+                </p>
+              </div>
             </div>
 
             {/* Location and Month Selection */}
