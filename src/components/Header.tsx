@@ -1,5 +1,6 @@
 import { Sun } from "lucide-react";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "./ui/navigation-menu";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
@@ -8,10 +9,10 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <Sun className="h-8 w-8 text-white animate-pulse" />
             <span className="text-2xl font-bold text-white">Maldives Weather</span>
-          </div>
+          </Link>
 
           {/* Navigation */}
           <NavigationMenu>
@@ -50,6 +51,17 @@ const Header = () => {
                   href="#"
                 >
                   Forecast
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    to="/news"
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-white transition-colors hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                  >
+                    News
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 

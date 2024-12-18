@@ -30,6 +30,34 @@ export const newsItems = [
     description: "Maritime authorities issue advisory for beach activities",
     image: "/lovable-uploads/9dab586f-a612-40aa-a336-c440868ea07c.png",
     type: "bad"
+  },
+  {
+    id: 5,
+    title: "Dramatic Storm Clouds Over Paradise",
+    description: "Photographers capture stunning weather phenomenon over beach resorts",
+    image: "/lovable-uploads/57ebdf38-0f8b-4a9b-aab8-beebb8f9a443.png",
+    type: "good"
+  },
+  {
+    id: 6,
+    title: "Severe Weather Alert: Resort Areas",
+    description: "Water villas and overwater structures secure against incoming weather system",
+    image: "/lovable-uploads/a530ec59-f06a-491a-9f2f-3bef5d5d4114.png",
+    type: "bad"
+  },
+  {
+    id: 7,
+    title: "Luxury Resorts Report Perfect Weather Conditions",
+    description: "Overwater villas experience ideal climate for vacation activities",
+    image: "/lovable-uploads/c20861b9-fd10-4599-b1aa-06873fc107a3.png",
+    type: "good"
+  },
+  {
+    id: 8,
+    title: "Golden Hour Paradise: Weather Perfect for Photography",
+    description: "Sunset seekers flock to overwater villas for perfect weather conditions",
+    image: "/lovable-uploads/202581cb-41b5-4dcf-983a-025f2fc701aa.png",
+    type: "good"
   }
 ];
 
