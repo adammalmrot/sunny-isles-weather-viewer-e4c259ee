@@ -25,7 +25,7 @@ const getWeatherIcon = (condition: string) => {
 };
 
 const backgroundImages = [
-  '/lovable-uploads/bf2a9916-b56f-4bd2-a7b0-95c5950147c5.png',
+  '/lovable-uploads/a046c5c7-aa5b-40be-aa38-855e937320a7.png', // Today's image
   '/lovable-uploads/bf50f110-02fd-4b05-bb49-2b502489c51c.png',
   '/lovable-uploads/bd82af9e-512c-48bb-8026-88c52b1a7efd.png',
   '/lovable-uploads/ef22733b-3bb3-48c0-b62e-eec4023cdbbc.png',
