@@ -83,26 +83,27 @@ export const NewsSection = ({ limit, showViewAll = true }: NewsSectionProps) => 
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {displayedNews.map((news) => (
-          <Card 
-            key={news.id}
-            className={`overflow-hidden transition-all duration-300 hover:shadow-lg ${
-              news.type === 'good' ? 'hover:border-green-400' : 'hover:border-red-400'
-            }`}
-          >
-            <div className="aspect-video relative overflow-hidden">
-              <img
-                src={news.image}
-                alt={news.title}
-                className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-            <CardHeader>
-              <CardTitle className="text-xl">{news.title}</CardTitle>
-              <CardDescription className="text-base">
-                {news.description}
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          <Link to={`/news/${news.id}`} key={news.id}>
+            <Card 
+              className={`overflow-hidden transition-all duration-300 hover:shadow-lg ${
+                news.type === 'good' ? 'hover:border-green-400' : 'hover:border-red-400'
+              }`}
+            >
+              <div className="aspect-video relative overflow-hidden">
+                <img
+                  src={news.image}
+                  alt={news.title}
+                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl">{news.title}</CardTitle>
+                <CardDescription className="text-base">
+                  {news.description}
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
         ))}
       </div>
     </div>
