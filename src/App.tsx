@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
 import About from "./pages/About";
+import Forecast from "./pages/Forecast";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/news" element={<News />} />
           <Route path="/news/:id" element={<NewsDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/forecast" element={<Forecast />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

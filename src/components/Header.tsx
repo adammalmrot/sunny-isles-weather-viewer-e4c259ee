@@ -2,7 +2,6 @@ import { Sun } from "lucide-react";
 import { Link } from "react-router-dom";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "./ui/navigation-menu";
-import { cn } from "@/lib/utils";
 
 const Header = () => {
   return (
@@ -42,11 +41,13 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-white transition-colors hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                    href="#"
-                  >
-                    Forecast
+                  <NavigationMenuLink asChild>
+                    <Link
+                      to="/forecast"
+                      className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-white transition-colors hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    >
+                      Forecast
+                    </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
 
