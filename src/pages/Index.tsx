@@ -51,9 +51,9 @@ const Index = () => {
       <Header />
       <div className="min-h-screen bg-gradient-to-br from-accent/20 to-primary/20">
         <div className="w-full px-4 py-12">
-          <div className="space-y-12 pt-8">
+          <div className="space-y-12 pt-16"> {/* Changed from pt-8 to pt-16 */}
             {/* Header Section */}
-            <div className="text-center space-y-4">
+            <div className="text-center space-y-6"> {/* Changed from space-y-4 to space-y-6 */}
               <h1 className="text-5xl md:text-6xl font-bold text-accent drop-shadow-lg">
                 Maldives Weather
               </h1>
