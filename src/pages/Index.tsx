@@ -19,14 +19,14 @@ const weatherData = {
   forecast: [
     { day: "Today", temperature: "29°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
     { day: "Tomorrow", temperature: "28°C", condition: "Sunny", icon: "sunny" },
-    { day: "Day 3", temperature: "27°C", condition: "Scattered Showers", icon: "scattered-showers" },
-    { day: "Day 4", temperature: "28°C", condition: "Sunny", icon: "sunny" },
-    { day: "Day 5", temperature: "29°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
-    { day: "Day 6", temperature: "30°C", condition: "Sunny", icon: "sunny" },
-    { day: "Day 7", temperature: "28°C", condition: "Scattered Showers", icon: "scattered-showers" },
-    { day: "Day 8", temperature: "27°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
-    { day: "Day 9", temperature: "29°C", condition: "Sunny", icon: "sunny" },
-    { day: "Day 10", temperature: "28°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
+    { day: "Wednesday", temperature: "27°C", condition: "Scattered Showers", icon: "scattered-showers" },
+    { day: "Thursday", temperature: "28°C", condition: "Sunny", icon: "sunny" },
+    { day: "Friday", temperature: "29°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
+    { day: "Saturday", temperature: "30°C", condition: "Sunny", icon: "sunny" },
+    { day: "Sunday", temperature: "28°C", condition: "Scattered Showers", icon: "scattered-showers" },
+    { day: "Monday", temperature: "27°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
+    { day: "Tuesday", temperature: "29°C", condition: "Sunny", icon: "sunny" },
+    { day: "Wednesday", temperature: "28°C", condition: "Partly Cloudy", icon: "partly-cloudy" },
   ],
 };
 
