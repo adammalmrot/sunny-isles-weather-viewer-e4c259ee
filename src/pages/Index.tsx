@@ -105,7 +105,7 @@ const Index = () => {
             {/* Forecast Section */}
             <div className="space-y-8 px-4">
               <div className="flex flex-col items-center gap-4">
-                <h2 className="text-3xl font-semibold text-center text-accent drop-shadow-md">
+                <h2 className="text-3xl font-semibold text-center text-white drop-shadow-md">
                   Weather Forecast
                 </h2>
                 <ToggleGroup
@@ -114,10 +114,10 @@ const Index = () => {
                   onValueChange={(value) => value && setForecastDays(value)}
                   className="bg-white/20 backdrop-blur-md p-1 rounded-lg"
                 >
-                  <ToggleGroupItem value="5" className="px-6">
+                  <ToggleGroupItem value="5" className="px-6 text-white">
                     5 Days
                   </ToggleGroupItem>
-                  <ToggleGroupItem value="10" className="px-6">
+                  <ToggleGroupItem value="10" className="px-6 text-white">
                     10 Days
                   </ToggleGroupItem>
                 </ToggleGroup>
