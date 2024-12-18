@@ -92,6 +92,7 @@ const Index = () => {
                   condition={weatherData.current.condition}
                   icon={weatherData.forecast[0].icon}
                   className="transform hover:scale-105 transition-all duration-300"
+                  index={0}
                 />
               </div>
             </div>
@@ -130,6 +131,7 @@ const Index = () => {
                     condition={day.condition}
                     icon={day.icon}
                     className="transform hover:scale-105 transition-all duration-300"
+                    index={index + 1}
                   />
                 ))}
               </div>

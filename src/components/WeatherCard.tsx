@@ -8,6 +8,7 @@ interface WeatherCardProps {
   condition: string;
   icon: string;
   className?: string;
+  index: number;
 }
 
 const getWeatherIcon = (condition: string) => {
@@ -29,7 +30,11 @@ const backgroundImages = [
   '/lovable-uploads/bd82af9e-512c-48bb-8026-88c52b1a7efd.png',
   '/lovable-uploads/ef22733b-3bb3-48c0-b62e-eec4023cdbbc.png',
   '/lovable-uploads/cffc9971-9a50-40ed-8955-c4e4243fce4e.png',
-  '/lovable-uploads/1b0338be-72df-4827-acd1-367da387ea25.png'
+  '/lovable-uploads/1b0338be-72df-4827-acd1-367da387ea25.png',
+  '/lovable-uploads/ca97d0a7-3347-4649-a7f3-db9d0ba1fe62.png',
+  '/lovable-uploads/03ba4976-a3ea-4414-b126-f4ec5e1f4b81.png',
+  '/lovable-uploads/741e24fe-e665-4e68-90fd-f197a4b36577.png',
+  '/lovable-uploads/d958e7d2-d44c-4560-9ae3-79cba767b336.png'
 ];
 
 export const WeatherCard = ({
@@ -37,9 +42,10 @@ export const WeatherCard = ({
   temperature,
   condition,
   className,
+  index,
 }: WeatherCardProps) => {
   const isToday = day.toLowerCase() === "today";
-  const dayIndex = isToday ? 0 : Math.floor(Math.random() * (backgroundImages.length - 1)) + 1;
+  const imageIndex = isToday ? 0 : index % (backgroundImages.length - 1) + 1;
   
   return (
     <Card 
@@ -48,7 +54,7 @@ export const WeatherCard = ({
         className
       )}
       style={{
-        backgroundImage: `url('${backgroundImages[dayIndex]}')`,
+        backgroundImage: `url('${backgroundImages[imageIndex]}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
