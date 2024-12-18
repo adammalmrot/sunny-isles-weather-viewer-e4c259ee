@@ -2,6 +2,7 @@ import { useState } from "react";
 import { WeatherCard } from "@/components/WeatherCard";
 import { WeatherMetrics } from "@/components/WeatherMetrics";
 import { LocationSelector } from "@/components/LocationSelector";
+import Header from "@/components/Header";
 
 // Placeholder data - will be replaced with API data later
 const weatherData = {
@@ -31,67 +32,70 @@ const Index = () => {
   const [selectedLocation, setSelectedLocation] = useState("male");
 
   return (
-    <div 
-      className="min-h-screen bg-gradient-to-b from-primary to-secondary"
-      style={{
-        backgroundImage: `url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
-    >
-      <div className="container mx-auto px-4 py-12 relative">
-        {/* Overlay for better readability */}
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm -mx-4" />
-        
-        <div className="space-y-12 relative">
-          {/* Header */}
-          <div className="text-center space-y-6 animate-fade-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
-              Maldives Weather
-            </h1>
-            <p className="text-lg text-white/90 max-w-2xl mx-auto">
-              Experience the tropical paradise through our detailed weather forecasts
-            </p>
-          </div>
+    <>
+      <Header />
+      <div 
+        className="min-h-screen bg-gradient-to-b from-primary to-secondary pt-16"
+        style={{
+          backgroundImage: `url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="container mx-auto px-4 py-12 relative">
+          {/* Overlay for better readability */}
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm -mx-4" />
+          
+          <div className="space-y-12 relative">
+            {/* Header */}
+            <div className="text-center space-y-6 animate-fade-up">
+              <h1 className="text-4xl md:text-5xl font-bold text-white">
+                Maldives Weather
+              </h1>
+              <p className="text-lg text-white/90 max-w-2xl mx-auto">
+                Experience the tropical paradise through our detailed weather forecasts
+              </p>
+            </div>
 
-          {/* Location Selector */}
-          <div className="flex justify-center">
-            <LocationSelector onLocationChange={setSelectedLocation} />
-          </div>
+            {/* Location Selector */}
+            <div className="flex justify-center">
+              <LocationSelector onLocationChange={setSelectedLocation} />
+            </div>
 
-          {/* Current Weather */}
-          <div className="flex justify-center">
-            <WeatherCard
-              day="Today"
-              temperature={weatherData.current.temperature}
-              condition={weatherData.current.condition}
-              icon={weatherData.forecast[0].icon}
-              className="w-full max-w-sm"
-            />
-          </div>
+            {/* Current Weather */}
+            <div className="flex justify-center">
+              <WeatherCard
+                day="Today"
+                temperature={weatherData.current.temperature}
+                condition={weatherData.current.condition}
+                icon={weatherData.forecast[0].icon}
+                className="w-full max-w-sm"
+              />
+            </div>
 
-          {/* Weather Metrics */}
-          <WeatherMetrics metrics={metrics} />
+            {/* Weather Metrics */}
+            <WeatherMetrics metrics={metrics} />
 
-          {/* Forecast */}
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-center text-white">5-Day Forecast</h2>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-              {weatherData.forecast.map((day, index) => (
-                <WeatherCard
-                  key={index}
-                  day={day.day}
-                  temperature={day.temperature}
-                  condition={day.condition}
-                  icon={day.icon}
-                />
-              ))}
+            {/* Forecast */}
+            <div className="space-y-6">
+              <h2 className="text-2xl font-semibold text-center text-white">5-Day Forecast</h2>
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                {weatherData.forecast.map((day, index) => (
+                  <WeatherCard
+                    key={index}
+                    day={day.day}
+                    temperature={day.temperature}
+                    condition={day.condition}
+                    icon={day.icon}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
