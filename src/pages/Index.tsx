@@ -71,12 +71,16 @@ const Index = () => {
               </div>
               <div className="w-full md:w-64 backdrop-blur-md bg-white/20 p-6 rounded-xl shadow-lg">
                 <Select value={selectedMonth} onValueChange={setSelectedMonth}>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full backdrop-blur-sm bg-white/80 border-white/20 text-gray-800 font-medium">
                     <SelectValue placeholder="Select month" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white/95 backdrop-blur-md border-white/20">
                     {months.map((month, index) => (
-                      <SelectItem key={index} value={index.toString()}>
+                      <SelectItem 
+                        key={index} 
+                        value={index.toString()}
+                        className="text-gray-800 hover:bg-accent/20 focus:bg-accent/20"
+                      >
                         {month}
                       </SelectItem>
                     ))}

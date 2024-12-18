@@ -21,12 +21,16 @@ export const LocationSelector = ({
   return (
     <div className="w-full max-w-xs animate-fade-in">
       <Select onValueChange={onLocationChange}>
-        <SelectTrigger className="w-full backdrop-blur-sm bg-white/80">
+        <SelectTrigger className="w-full backdrop-blur-sm bg-white/80 border-white/20 text-gray-800 font-medium">
           <SelectValue placeholder="Select location" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="bg-white/95 backdrop-blur-md border-white/20">
           {locations.map((location) => (
-            <SelectItem key={location.id} value={location.id}>
+            <SelectItem 
+              key={location.id} 
+              value={location.id}
+              className="text-gray-800 hover:bg-accent/20 focus:bg-accent/20"
+            >
               {location.name}
             </SelectItem>
           ))}
